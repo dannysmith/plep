@@ -1,0 +1,12 @@
+development:
+  :address:
+  :port: 25
+  :authentication: login
+  :user_name:
+  :password:
+production:
+  :address:
+  :port: 25
+  :authentication: login
+  :user_name:
+  :password:

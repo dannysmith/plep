@@ -1,0 +1,57 @@
+@import formtastic_base.sass
+
+!fs_border_color = #C2D6F5
+!bg_color = #fff
+!text_color = #000
+!input_border_color = #8595B2
+
+form
+  +float-form(420px, 100px, 280px, 0, "buttons-right")
+  
+input
+  background-color= !bg_color
+  :font-family "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif
+  color= !text_color
+  :margin 4px 0 5px 8px
+  :padding 1px
+  :border 1px solid #000
+  border-color= !input_border_color
+  :padding 10px
+  :font-size 0.8em
+}
+
+.textarea
+  :border 1px solid #000
+  border-color= !input_border_color
+  background-color= !bg_color
+  :font-family  "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif
+  color= !text_color
+  :margin 4px 0 5px 8px
+  
+fieldset
+  :border 1px solid #000
+  border-color= !fs_border_color
+  
+.buttons
+  :border none
+  
+legend
+  +italic-indent
+
+.inline-hints
+  :color #475A79
+  :font-size 0.8em
+  :padding-left 20px
+
+#errorExplanation
+  :border 1px solid #CB0066
+  :margin 1em
+  :background-color #FFBABA
+  p
+    :color #333
+    :margin-bottom 0
+    :margin-left 1em
+  ul
+    li
+      :list-style disc
+

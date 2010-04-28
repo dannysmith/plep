@@ -1,0 +1,43 @@
+- title "Profile for #{@user.name}"
+#profile-page
+  #details-wrapper
+    #details
+      %img{:src => "/images/dummy-person.jpg"}
+      %h2= @user.name
+      =link_to "(edit)", edit_user_path(@user)
+      %p#username= @user.username
+      %p#squadron= @user.squadron.name
+      %p#joined_ondate= @user.joined_on
+    
+    #completed_courses
+      %ul
+        %li
+          %a{:href => "#"} Course 1
+        %li
+          %a{:href => "#"} Course 2
+        %li
+          %a{:href => "#"} Course 3
+        
+    #enrolled_courses
+      %ul
+        %li
+          %a{:href => "#"} Course 1
+        %li
+          %a{:href => "#"} Course 2 
+          %a.view_course{:href => "#"} (view)
+          %table
+            %tr
+              %td Assessment 1
+              %td Passed
+            %tr
+              %td Assessment 2
+              %td Passed
+        %li 
+          %a{:href => "#"} Course 3
+          
+  #twitter-wrapper
+    %h3 Latest from twitter
+    %p ...
+    
+//Edit Prof Page - Ajax Upload photo to paperclip
+//Edit Name, email, squadron and password fields.

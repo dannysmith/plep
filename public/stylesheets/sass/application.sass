@@ -1,34 +1,160 @@
-!primary_color = #4B7399
+//Application.css is split into three sections:
+//    GENERIC STYLES  - typography in use across app.
+//    LAYOUT STUFF    - layout using GRID mixins. Has subsections for each page type & a general section.
+//    PRETTY STUFF    - Split into subsections for generic things like errors.
+
+//There are also some imported sheets:
+//    grid.sass   - Mixins for laying the app out on a 960px grid.
+//    forms.sass  - Contains all form formatting.
+//    signup.sass - Contains styling (not layout) for the signup page
+//    mixins.sass - Contsains generic mixins
+
+@import grid.sass
+@import mixins.sass
+@import forms.sass
+
+@import signup.sass
+
+
+!primary_color = #CFE2FF
+!base_font = 18px
+!base_leading = 1.5em
+
+//------------------------GENERIC SETTINGS------------------------------
+
 
 body
-  :background-color = !primary_color
+  //Body copy, leading and colouring
   :font
-    :family Verdana, Helvetica, Arial
-    :size 14px
+    :family 'Myriad Pro', Corbel, 'Helvetica Neue', Helvetica, 'Lucida Grande', Verdana, sans-serif
+    size = !base_font
+    :weight normal
+  line-height = !base_leading
+  :letter-spacing -0.5px
+  :color #000000
+  
+  //Main Page Colour
+  background-color = !primary_color
+
+h1, h2, h3, h4, h5, h6
+  //Reset for all basic typography for Headers
+  :font-weight normal
+
+h1
+  //Main stuff
+  :font-size 218%
+
+h2
+  //Section Headings on pages
+  :font
+    :size 164%
+
+h3
+  //Navigational & Tertiery headings
+  :font-size 145%
+
+h4
+  //Any other headed stuff
+  :font-size 118%
 
 a
-  :color #0000FF
+  //Standard link colourings.
+  :color #000000
+  :text-decoration none
+  :border-bottom 1px solid black
   img
-    :border none
-
+    :border none     
+a:hover
+  :border-bottom 1px solid white
+  
 .clear
+  //Shouldn't be nececary with this layout but here just incase.
   :clear both
   :height 0
   :overflow hidden
 
+//------------------------LAYOUT STUFF------------------------------
+
+// GENERIC LAYOUT
+html, body
+  :padding 0
+  :margin 0
+  :height 100%
 #container
-  :width 75%
-  :margin 0 auto
-  :background #fff
-  :padding 20px 40px
-  :border solid 1px black
-  :margin-top 20px
+  //Contains eveything on the page
+  :margin 0
+  :padding 0
 
-#flash_notice,
-#flash_error
-  :padding 5px 8px
-  :margin 10px 0
+#header-wrap
+  //Contains the header div - used to tile out to the right.
+  :background #EDEAD4 url(../images/pleper-header-rep.png) repeat-x scroll
 
+#header
+  //Displays the header graphic banner
+  //May contain Nav links.
+  :background #EDEAD4 url(../images/pleper-header.png) no-repeat scroll top left
+  :width 960px
+  :height 152px
+
+  h1
+    :display none
+    
+#footer
+  //Spans the whole page, contains meta.
+  :text-align right
+  :padding-right 20px
+  :height 4em
+  
+.push
+  :height 4em
+  
+#content-wrapper
+  //Contains #flash_error and #flash_notice if present
+  //Styles to keep footer stuck to the bottom of the page.
+  :min-height 100%
+  :height auto !important
+  :height 100%
+  :margin 0 auto -4em
+  
+#content
+  //Contains the yield of the page - each page should have a specific ID like #signup-page
+  
+  
+//SIGNUP PAGE
+#signup-page
+  +row
+#signup-form
+  +column
+  +grid-6
+#signup-help
+  +column
+  +grid-6
+  
+
+  
+  
+  
+  
+  
+//------------------------PRETTY STUFF------------------------------
+
+  
+#footer
+  //:background url(../images/footer_bg.png) rgb(230, 230, 230)
+  ul
+    :list-style none
+    
+    :text-shadow white 0 1px 1px
+    :font
+      :family 'Georgia', serif
+      :style italic
+      :size 0.8em
+      
+    li
+      :display inline
+  
+  
+  
 #flash_notice
   :background-color #CFC
   :border solid 1px #6C6
@@ -37,31 +163,3 @@ a
   :background-color #FCC
   :border solid 1px #C66
 
-.fieldWithErrors
-  :display inline
-
-#errorExplanation
-  :width 400px
-  :border 2px solid #CF0000
-  :padding 0
-  :padding-bottom 12px
-  :margin-bottom 20px
-  :background-color #f0f0f0
-  h2
-    :text-align left
-    :padding 5px 5px 5px 15px
-    :margin 0
-    :font
-      :weight bold
-      :size 12px
-    :background-color #c00
-    :color #fff
-  p
-    :color #333
-    :margin-bottom 0
-    :padding 8px
-  ul
-    :margin 2px 24px
-    li
-      :font-size 12px
-      :list-style disc

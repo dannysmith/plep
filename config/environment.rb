@@ -11,6 +11,8 @@ Rails::Initializer.run do |config|
   config.gem 'right_http_connection'
   config.gem 'authlogic'
   config.gem 'haml'
+  config.gem 'formtastic'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

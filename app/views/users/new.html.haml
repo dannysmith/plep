@@ -1,24 +1,22 @@
 - title "Sign up"
-
-%p== Already have an account? #{link_to "Log in", login_path}.
-
-- form_for @user do |f|
-  = f.error_messages
-  %p
-    = f.label :username
-    %br
-    = f.text_field :username
-  %p
-    = f.label :email, "Email Address"
-    %br
-    = f.text_field :email
-  %p
-    = f.label :password
-    %br
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, "Confirm Password"
-    %br
-    = f.password_field :password_confirmation
-  %p
-    = f.submit "Sign up"
+#signup-page
+  #signup-form
+    - semantic_form_for @user do |f|
+    
+      -f.inputs "Sign Up", :id => "signup" do
+        = f.input :first_name
+        = f.input :surname
+        = f.input :squadron, :default => "Choose your Squadron..."
+        = f.input :username, :hint => "It's best to use something near your real name"
+        = f.input :email, :hint => "your private email, not your BADER one"
+        = f.input :password, :hint => "Should be more than four characters"
+        = f.input :password_confirmation, :label => "Confirm"
+      
+      -f.buttons do
+        = f.commit_button
+      
+  #signup-help
+    %p== If you've already signed up, you should #{link_to "Log in", login_path} instead.
+    
+    = error_messages_for :user, :header_message => "", :message => "Oops, there were some problems!"
+    

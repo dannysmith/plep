@@ -1,0 +1,10 @@
+
+#signup-help {
+  font-size: 2em;
+  font-text-align: center;
+  font-vertical-align: middle;
+  line-height: 2em;
+  text-shadow: 0 0.04em 0.05em #F9FBFF,0 0 0.04em rgba(0,0,0,0.8);
+  color: #111; }
+  #signup-help a {
+    color: #0B024E; }
